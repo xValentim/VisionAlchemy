@@ -1,3 +1,5 @@
 ## VisionAlchemy 
 
-First Application (MNIST): https://huggingface.co/spaces/xValentim/VisionAlchemyMNIST
+Application (MNIST): https://huggingface.co/spaces/xValentim/VisionAlchemyMNIST
+
+Application (CelebA): https://huggingface.co/spaces/xValentim/VisionAlchemyCelebA
