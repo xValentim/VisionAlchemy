@@ -6,18 +6,18 @@ Application (CelebA): https://huggingface.co/spaces/xValentim/VisionAlchemyCeleb
 
 ## Papers
 
-- [Single Image Deblurring Based on Auxiliary Sobel Loss Function (Done, Ideia aproveitada para loss extra)](https://ieeexplore.ieee.org/document/9276836)
-- [A Probe Towards Understanding GAN and VAE Models (Apenas referência conceitual)](https://arxiv.org/pdf/1812.05676.pdf)
-- [Auto-Encoding Variational Bayes (Done)](https://arxiv.org/abs/1312.6114)
-- [Deep Residual Learning for Image Recognition (Done, Ideia aproveitada pra construir um AutorEncoder com arquitetura de Resnet)](https://arxiv.org/abs/1512.03385)
+- [Single Image Deblurring Based on Auxiliary Sobel Loss Function](https://ieeexplore.ieee.org/document/9276836)
+- [A Probe Towards Understanding GAN and VAE Models](https://arxiv.org/pdf/1812.05676.pdf)
+- [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
+- [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 - [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661)
-- [A Privacy-Preserving Walk in the Latent Space of Generative Models for Medical Applications (Não utilizado, mas a ideia central pode ser copiada para outro contexto)](https://arxiv.org/pdf/2307.02984.pdf) 
-- [Denoising Diffusion Probabilistic Models (TODO)](https://arxiv.org/pdf/2006.11239.pdf)
-- [On original and latent space connectivity in deep neural networks (TODO, Aproveitar a ideia)](https://arxiv.org/pdf/2311.06816.pdf)
-- [Latent Morphologies: Encoding Architectural Features and Decoding Their Structure through Artificial Intelligence (Done, a construção de retas no R^n já está sendo feita)](https://dash.harvard.edu/handle/1/37372337)
-- [Keras Docs (Muitos exemplos legais no getting started e Code examples)](https://keras.io/api/)
-- [DragGan (Inspiração para aplicação WEB)](https://huggingface.co/spaces/DragGan/DragGan)
-- [DragGan (paper)](https://arxiv.org/pdf/2305.10973.pdf)
+- [A Privacy-Preserving Walk in the Latent Space of Generative Models for Medical Applications](https://arxiv.org/pdf/2307.02984.pdf) 
+- [Denoising Diffusion Probabilistic Models](https://arxiv.org/pdf/2006.11239.pdf)
+- [On original and latent space connectivity in deep neural networks](https://arxiv.org/pdf/2311.06816.pdf)
+- [Latent Morphologies: Encoding Architectural Features and Decoding Their Structure through Artificial Intelligence](https://dash.harvard.edu/handle/1/37372337)
+- [Keras Docs](https://keras.io/api/)
+- [DragGan (Web)](https://huggingface.co/spaces/DragGan/DragGan)
+- [DragGan](https://arxiv.org/pdf/2305.10973.pdf)
 
 ## Introduction
 
@@ -29,8 +29,6 @@ Além do contexto básico de geração de imagens, vamos explorar também a apli
 ## Mudanças na Loss Function
 
 Incorporando as ideias citadas anteriormente, fizemos algumas alterações na loss function do modelo. A ideia é que, além da loss function padrão do modelo, vamos adicionar uma loss extra que vai ajudar a melhorar a qualidade das imagens geradas. A loss extra que vamos adicionar é a loss de Sobel, que é uma técnica de detecção de bordas bastante popular na literatura. A ideia é que, ao adicionar essa loss extra, o modelo seja capaz de gerar imagens com bordas mais definidas e, consequentemente, com mais qualidade. A ideia de adicionar uma loss extra ao modelo foi inspirada no paper [Single Image Deblurring Based on Auxiliary Sobel Loss Function](https://ieeexplore.ieee.org/document/9276836). Por fim, alteramos também a loss de reconstrução para diminuir o blurre das imagens geradas. Acompanhe a equação final que vamos minimizar para treinar o modelo:
-
-<!-- $\mathcal{L} = MSE(x + \delta | x - \hat x |, \hat x) + \lambda_1 \mathcal{L}_{sobel} + \lambda_2 D_{KL}$ -->
 
 $$\mathcal{L} = |I + \delta | I - \psi(\phi(I)) | - \psi(\phi(I))|^{2} -\frac{1}{2} \sum_{i=1}^{N} \left(1 + \log(\sigma_i^2) - \mu_i^2 - \sigma_i^2\right) + \gamma \cdot |f(I) - f(\psi(\phi(I)))|$$
 
@@ -46,6 +44,19 @@ Vamos manipular o espaço latente de tal forma que poderemos inserir atributos f
 $$FakeImage = \psi(\phi(x) + \sum_{i} t_i \cdot \vec v_i)$$
 
 Por fim, você pode ver a aplicação web do modelo treinado para o MNIST [aqui](https://huggingface.co/spaces/xValentim/VisionAlchemyMNIST) e para o CelebA [aqui](https://huggingface.co/spaces/xValentim/VisionAlchemyCelebA).
+
+## Resultados de treinamento
+
+Com as mudanças feitas na loss function, conseguimos melhorar a qualidade das imagens geradas. A loss extra de Sobel ajudou a gerar imagens com bordas mais definidas e, consequentemente, com mais qualidade. Além disso, a loss de reconstrução ajudou a diminuir o blurre das imagens geradas. Acompanhe abaixo os resultados de treinamento do modelo:
+
+### Loss Modificada 
+
+![img](./images/output_vae_sobel_resnet.png)
+
+### Loss Original
+
+![img](./images/output_vae_resnet.png)
+
 
 ## Datasets
 
