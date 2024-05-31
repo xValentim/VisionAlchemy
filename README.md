@@ -4,6 +4,8 @@ Application (MNIST): https://huggingface.co/spaces/xValentim/VisionAlchemyMNIST
 
 Application (CelebA): https://huggingface.co/spaces/xValentim/VisionAlchemyCelebA
 
+(PT) Medium: https://medium.com/@gabriel.valentim.blis/introdu%C3%A7%C3%A3o-cf1b66ca9bfb
+
 ## Papers
 
 - [Single Image Deblurring Based on Auxiliary Sobel Loss Function](https://ieeexplore.ieee.org/document/9276836)
