@@ -6,7 +6,7 @@ Application (CelebA): https://huggingface.co/spaces/xValentim/VisionAlchemyCeleb
 
 (PT) Medium: https://medium.com/@gabriel.valentim.blis/introdu%C3%A7%C3%A3o-cf1b66ca9bfb
 
-(ENGLISH) Medium: 
+(ENGLISH) Medium: https://medium.com/@enzoluidge4/slidevae-deepfake-applications-eee1ab20f051
 
 (ENGLISH) Video: https://youtu.be/o0E0EhIPMig
 ## Papers
