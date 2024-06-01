@@ -6,6 +6,9 @@ Application (CelebA): https://huggingface.co/spaces/xValentim/VisionAlchemyCeleb
 
 (PT) Medium: https://medium.com/@gabriel.valentim.blis/introdu%C3%A7%C3%A3o-cf1b66ca9bfb
 
+(ENGLISH) Medium: 
+
+(ENGLISH) Video: https://youtu.be/o0E0EhIPMig
 ## Papers
 
 - [Single Image Deblurring Based on Auxiliary Sobel Loss Function](https://ieeexplore.ieee.org/document/9276836)
